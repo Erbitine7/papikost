@@ -8,4 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'GuestCtrl::index');
 
 $routes->get('/dashboard', 'StaffCtrl::index');
+$routes->get('/computer', 'StaffCtrl::computer');
+$routes->get('/rental', 'StaffCtrl::rental');
 $routes->get('/staff-login', 'StaffCtrl::login');

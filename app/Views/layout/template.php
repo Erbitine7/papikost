@@ -7,7 +7,7 @@
     <!-- SIDEBAR -->
     <?= $this->include('layout/sidebar') ?>
     
-    <div class="p-4 pl-72">
+    <div class="py-6 pl-67">
         <!-- CONTENT -->
         <?= $this->renderSection('content') ?>
     </div>
