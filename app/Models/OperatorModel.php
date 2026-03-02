@@ -4,19 +4,21 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PaymentModel extends Model
+class OperatorModel extends Model
 {
-    protected $table            = 'payments';
+    protected $table            = 'operators';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $protectFields    = true;
 
     protected $allowedFields = [
-        'billing_session_id',
-        'payment_method',
-        'amount_paid',
-        'operator_id'
+        'username',
+        'password',
+        'full_name',
+        'email',
+        'role',
+        'status'
     ];
 
     protected $useTimestamps = false;
