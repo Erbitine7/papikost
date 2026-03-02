@@ -71,7 +71,7 @@
             <input readonly type="number" name="pcno" id="del" class="w-12 bg-slate-900 p-2 rounded-md text-center ml-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
         </div>
         <div class="flex flex-row w-full items-center justify-between">
-            <h3 class="mr-4 ml-2">This will delete the selected PC</h3>
+            <h3 class="mx-2 mt-4 text-center">This will delete the selected PC</h3>
         </div>
         <div class="flex flex-row w-full items-center justify-between gap-3 mt-4">
             <button onclick="closeDelete()" type="button" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full">Cancel</button>

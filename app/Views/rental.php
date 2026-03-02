@@ -12,7 +12,7 @@
 
 <div class="flex flex-row justify-between pr-6">
     <h1 class="mx-5 text-xl">Active Rentals</h1>
-    <a href="#" class="p-2 bg-cyan-500 font-bold text-slate-900 rounded-lg">+ Add new</a>
+    <a href="<?= base_url('rental/add') ?>" class="p-2 bg-cyan-500 font-bold text-slate-900 rounded-lg">+ Add new</a>
 </div>
 <div class="w-full flex flex-row flex-nowrap gap-5 overflow-auto p-4">
 
@@ -114,14 +114,14 @@
         <h1 class="text-center mb-4">Rent conclusion</h1>
         <div class="flex flex-row w-full items-center justify-center">
             <label for="pcnodel">PC # :</label>
-            <input type="number" name="pcno" id="del" class="w-12 bg-slate-900 p-2 rounded-md text-center ml-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+            <input readonly type="number" name="pcno" id="del" class="w-12 bg-slate-900 p-2 rounded-md text-center ml-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
         </div>
         <div class="flex flex-row w-full items-center justify-between">
-            <h3 class="mr-4 ml-2">This will end the selected PC's rental session</h3>
+            <h3 class="mr-4 ml-2 mt-2">This will end the selected PC's rental session</h3>
         </div>
         <div class="flex flex-row w-full items-center justify-between gap-3 mt-4">
-            <button onclick="closeDelete()" type="button" class="cursor-pointer bg-red-600 hover:bg-red-500 p-2 mt-2 mb-1 rounded-md w-full">No</button>
-            <input type="submit" value="Yes" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full">
+            <button onclick="closeDelete()" type="button" class="cursor-pointer bg-red-600 hover:bg-red-500 p-2 mt-2 mb-1 rounded-md w-full">Cancel</button>
+            <input type="submit" value="Proceed" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full">
         </div>
     </form>
 </dialog>

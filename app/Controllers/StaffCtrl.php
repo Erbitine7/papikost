@@ -54,4 +54,12 @@ class StaffCtrl extends BaseController
         ];
         return view('rental', $data);
     }
+
+    public function addrental(): string
+    {
+        $data = [
+            'page'=>'Rental'
+        ];
+        return view('addrental', $data);
+    }
 }
