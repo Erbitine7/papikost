@@ -3,7 +3,8 @@
     <div class="flex flex-col flex-grow">
         <a href="<?= base_url('dashboard') ?>" class="py-2 px-6 hover:pl-7 flex items-center <?= ($page === 'Dashboard') ? "pl-7 bg-gray-800" : "hover:bg-gray-900 hover:pl-7" ?>"><ion-icon class="text-xl mr-2" name="home-outline"></ion-icon>Home</a>
         <a href="<?= base_url('computer') ?>" class="py-2 px-6 flex items-center <?= ($page === 'Computer') ? "pl-7 bg-gray-800" : "hover:bg-gray-900 hover:pl-7" ?>"><ion-icon class="text-xl mr-2" name="desktop-outline"></ion-icon>Computer</a>
-        <a href="<?= base_url('rental') ?>" class="py-2 px-6 flex items-center <?= ($page === 'Rental') ? "pl-7 bg-gray-800" : "hover:bg-gray-900 hover:pl-7" ?>"><ion-icon class="text-xl mr-2" name="document-text-outline"></ion-icon>Rental</a>
+        <a href="<?= base_url('rental') ?>" class="py-2 px-6 flex items-center <?= ($page === 'Rental') ? "pl-7 bg-gray-800" : "hover:bg-gray-900 hover:pl-7" ?>"><ion-icon class="text-xl mr-2" name="browsers-outline"></ion-icon>Rental</a>
+        <a href="<?= base_url('payment') ?>" class="py-2 px-6 flex items-center <?= ($page === 'Payment') ? "pl-7 bg-gray-800" : "hover:bg-gray-900 hover:pl-7" ?>"><ion-icon class="text-xl mr-2" name="cash-outline"></ion-icon>Payment</a>
         <hr class="text-slate-500">
         <a href="<?= base_url('member') ?>" class="py-2 px-6 flex items-center <?= ($page === 'Member') ? "pl-7 bg-gray-800" : "hover:bg-gray-900 hover:pl-7" ?>"><ion-icon class="text-xl mr-2" name="person-circle-outline"></ion-icon>Member</a>
         <a href="<?= base_url('staff') ?>" class="py-2 px-6 flex items-center <?= ($page === 'Staff') ? "pl-7 bg-gray-800" : "hover:bg-gray-900 hover:pl-7" ?>"><ion-icon class="text-xl mr-2" name="person-outline"></ion-icon>Staff</a>

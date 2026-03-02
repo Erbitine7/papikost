@@ -11,8 +11,8 @@
 <hr class="text-slate-600 mb-3">
 
 <div class="flex flex-row justify-between pr-6">
-    <h1 class="mx-5 text-xl">Members</h1>
-    <a href="<?= base_url('member/add') ?>" class="p-2 bg-cyan-500 font-bold text-slate-900 rounded-lg">+ Add new</a>
+    <h1 class="mx-5 text-xl">Staffs</h1>
+    <a href="<?= base_url('staff/add') ?>" class="p-2 bg-cyan-500 font-bold text-slate-900 rounded-lg">+ Add new</a>
 </div>
 <div class="w-full flex flex-row flex-nowrap gap-5 overflow-auto p-4">
 
@@ -38,7 +38,7 @@
                 <td class="py-4 px-2">12/02/2022</td>
                 <td class="py-4 px-2">15/05/2024</td>
                 <td class="pt-2 px-3 font-semibold text-right flex justify-end">
-                    <a href="<?= base_url('member/edit?id=' . '1') ?>" class="rounded-lg bg-yellow-400 pt-1 pb-2 px-2 ml-2 text-slate-900 hover:bg-yellow-600 flex"><ion-icon class="pt-1 text-2xl" name="pencil-outline"></ion-icon></a>
+                    <a href="<?= base_url('staff/edit?id=' . '1') ?>" class="rounded-lg bg-yellow-400 pt-1 pb-2 px-2 ml-2 text-slate-900 hover:bg-yellow-600 flex"><ion-icon class="pt-1 text-2xl" name="pencil-outline"></ion-icon></a>
                     <a onclick="openDelete(1)" class="rounded-lg bg-red-500 pt-1 pb-2 px-2 ml-2 hover:bg-red-700 hover:text-gray-300 flex"><ion-icon class="pt-1 text-2xl" name="trash-outline"></ion-icon></a>
                 </td>
             </tr>
@@ -54,8 +54,8 @@
     <form action="#" method="POST" class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
         <h1 class="text-center mb-4">WARNING</h1>
         <div class="flex flex-row w-full items-center justify-between">
-            <h3 class="mx-2 text-center">This will delete the selected member</h3>
-            <input type="hidden" name="memberid" value="1">
+            <h3 class="mx-2 text-center">This will delete the selected staff</h3>
+            <input type="hidden" name="staffid" value="1">
         </div>
         <div class="flex flex-row w-full items-center justify-between gap-3 mt-4">
             <button onclick="closeDelete()" type="button" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full">Cancel</button>
