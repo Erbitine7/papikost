@@ -47,6 +47,14 @@ class StaffCtrl extends BaseController
         return view('editcomputer', $data);
     }
 
+    public function detailcomputer(): string
+    {
+        $data = [
+            'page'=>'Computer'
+        ];
+        return view('detailcomputer', $data);
+    }
+
     public function rental(): string
     {
         $data = [
@@ -62,7 +70,6 @@ class StaffCtrl extends BaseController
         ];
         return view('addrental', $data);
     }
-
     public function member(): string
     {
         $data = [
@@ -109,6 +116,14 @@ class StaffCtrl extends BaseController
             'page'=>'Staff'
         ];
         return view('editstaff', $data);
+    }
+
+    public function payment(): string
+    {
+        $data = [
+            'page'=>'Payment'
+        ];
+        return view('payment', $data);
     }
 
 }

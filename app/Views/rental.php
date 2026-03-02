@@ -66,7 +66,9 @@
                 <th class="p-2">Start time</th>
                 <th class="p-2">End time</th>
                 <th class="p-2">Date</th>
-                <th class="p-2 text-right">Total Price</th>
+                <th class="p-2">Total price</th>
+                <th class="p-2">Payment method</th>
+                <th class="p-2 text-right">Operator</th>
             </tr>
         </thead>
         <tbody>
@@ -78,7 +80,9 @@
                 <td class="py-4 px-2">14:00</td>
                 <td class="py-4 px-2">16:00</td>
                 <td class="py-4 px-2">23/02/2026</td>
-                <td class="py-4 px-2 text-right">Rp 20.000</td>
+                <td class="py-4 px-2">Rp 20.000</td>
+                <td class="py-4 px-2">Cash</td>
+                <td class="pt-2 px-3 text-right">Kal'stand</td>
             </tr>
 
             
@@ -110,19 +114,19 @@
 </dialog>
 
 <dialog id="dialog-delete" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 open:flex backdrop:bg-slate-950/[80%]">
-    <form action="#" method="POST" class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
+    <div action="#" method="POST" class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
         <h1 class="text-center mb-4">Rent conclusion</h1>
         <div class="flex flex-row w-full items-center justify-center">
-            <label for="pcnodel">PC # :</label>
-            <input readonly type="number" name="pcno" id="del" class="w-12 bg-slate-900 p-2 rounded-md text-center ml-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+            <label for="del">PC # :</label>
+            <input readonly type="number" id="del" class="w-12 bg-slate-900 p-2 rounded-md text-center ml-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
         </div>
-        <div class="flex flex-row w-full items-center justify-between">
-            <h3 class="mr-4 ml-2 mt-2">This will end the selected PC's rental session</h3>
+        <div class="flex flex-row w-full items-center justify-between text-center">
+            <h3 class="mr-4 ml-2 mt-2">This will end the selected PC's session</h3>
         </div>
         <div class="flex flex-row w-full items-center justify-between gap-3 mt-4">
             <button onclick="closeDelete()" type="button" class="cursor-pointer bg-red-600 hover:bg-red-500 p-2 mt-2 mb-1 rounded-md w-full">Cancel</button>
-            <input type="submit" value="Proceed" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full">
+            <a href="payment?id=1" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full text-center">Proceed</a>
         </div>
-    </form>
+    </div>
 </dialog>
 <?= $this->endSection() ?>

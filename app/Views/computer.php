@@ -38,6 +38,7 @@
                 <td class="py-4 px-2">12/02/2022</td>
                 <td class="py-4 px-2">15/05/2024</td>
                 <td class="pt-2 px-3 font-semibold text-right flex justify-end">
+                    <a href="<?= base_url('computer/detail?id=' . '1') ?>" class="rounded-lg bg-lime-500 pt-1 pb-2 px-2 ml-2 text-slate-900 hover:bg-lime-600 flex"><ion-icon class="pt-1 text-2xl" name="eye-outline"></ion-icon></a>
                     <a href="<?= base_url('computer/edit?id=' . '1') ?>" class="rounded-lg bg-yellow-400 pt-1 pb-2 px-2 ml-2 text-slate-900 hover:bg-yellow-600 flex"><ion-icon class="pt-1 text-2xl" name="pencil-outline"></ion-icon></a>
                     <a onclick="openDelete(1)" class="rounded-lg bg-red-500 pt-1 pb-2 px-2 ml-2 hover:bg-red-700 hover:text-gray-300 flex"><ion-icon class="pt-1 text-2xl" name="trash-outline"></ion-icon></a>
                 </td>
@@ -51,6 +52,7 @@
                 <td class="py-4 px-2">12/02/2022</td>
                 <td class="py-4 px-2">01/03/2026</td>
                 <td class="pt-2 px-3 font-semibold text-right flex justify-end">
+                    <a href="<?= base_url('computer/detail?id=' . '2') ?>" class="rounded-lg bg-lime-500 pt-1 pb-2 px-2 ml-2 text-slate-900 hover:bg-lime-600 flex"><ion-icon class="pt-1 text-2xl" name="eye-outline"></ion-icon></a>
                     <a href="<?= base_url('computer/edit?id=' . '2') ?>" class="rounded-lg bg-yellow-400 pt-1 pb-2 px-2 ml-2 text-slate-900 hover:bg-yellow-600 flex"><ion-icon class="pt-1 text-2xl" name="pencil-outline"></ion-icon></a>
                     <a onclick="openDelete(2)" class="rounded-lg bg-red-500 pt-1 pb-2 px-2 ml-2 hover:bg-red-700 hover:text-gray-300 flex"><ion-icon class="pt-1 text-2xl" name="trash-outline"></ion-icon></a>
                 </td>
