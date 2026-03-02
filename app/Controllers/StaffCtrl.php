@@ -31,6 +31,22 @@ class StaffCtrl extends BaseController
         return view('computer', $data);
     }
 
+    public function addcomputer(): string
+    {
+        $data = [
+            'page'=>'Computer'
+        ];
+        return view('addcomputer', $data);
+    }
+
+    public function editcomputer(): string
+    {
+        $data = [
+            'page'=>'Computer'
+        ];
+        return view('editcomputer', $data);
+    }
+
     public function rental(): string
     {
         $data = [
