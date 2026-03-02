@@ -1,0 +1,53 @@
+<?= $this->extend('layout/template') ?>
+
+<?= $this->section('content') ?>
+
+<div class="flex flex-row items-center mb-5 px-5">
+    <h3 class="font-semibold text-slate-900 bg-slate-200 px-1 rounded-md mr-2">ADMIN</h3>
+    <h1 class="text-2xl mx-1">Name</h1>
+    <span class="text-sm text-slate-400 self-end">(email@mail.com)</span>
+</div>
+
+<hr class="text-slate-600 mb-3">
+
+<div class="flex flex-row pr-6 gap-2">
+    <a href="<?= base_url('computer') ?>" class="ml-5 text-xl text-cyan-300">Computers</a>
+    <h1 class="text-xl text-slate-600">/</h1>
+    <h1 class="text-xl">Add a computer</h1>
+</div>
+<div class="w-full flex flex-row flex-nowrap gap-5 overflow-auto p-4">
+
+    <form action="#" method="POST" class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
+        
+        <div class="flex flex-row w-full items-center mb-4">
+            <label for="pcno" class="w-37">PC # :</label>
+            <input type="number" name="pcno" id="pcno" placeholder="pcno" readonly value="3" class="grow bg-slate-900 p-2 rounded-md text-cyan-400">
+        </div>
+        
+        <div class="flex flex-row w-full items-center mb-4">
+            <label for="hourly" class="w-37">Hourly price (Rp) :</label>
+            <input type="number" name="hourly" id="hourly" placeholder="E.g. 10000" class="grow bg-slate-900 p-2 rounded-md">
+        </div>
+        
+        
+        <div class="flex flex-row w-full items-center mb-4">
+            <label for="hourly" class="w-37">Status :</label>
+            
+            <select id="countries" class="grow bg-slate-900 p-2 rounded-md">
+                <option value="0" selected>Available</option>
+                <option value="1">Under Maintenance</option>
+                <option value="2">Disabled</option>
+            </select>
+
+        </div>
+        
+        <input type="submit" value="Save" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md">
+
+
+    </form>
+
+</div>
+<hr class="text-slate-600 mb-3">
+
+
+<?= $this->endSection() ?>
