@@ -17,24 +17,25 @@
 </div>
 <div class="w-full flex flex-row flex-nowrap gap-5 overflow-auto p-4">
 
-    <form action="#" method="POST" class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
+    <form action="<?= base_url('/member/update') ?>" method="POST" class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
+        <input type="hidden" name="id" value="<?= $member['id'] ?>">
         
         <div class="flex flex-row w-full items-center mb-4">
             <label for="name" class="w-37">Name :</label>
-            <input type="text" name="name" id="name" placeholder="name" class="grow bg-slate-900 p-2 rounded-md">
+            <input type="text" name="name" id="name" placeholder="Full name" value="<?= $member['name'] ?>" class="grow bg-slate-900 p-2 rounded-md" required>
         </div>
         
         <div class="flex flex-row w-full items-center mb-4">
-            <label for="phone" class="w-37">Phone number :</label>
-            <input type="number" name="phone" id="phone" placeholder="000000000000" class="grow bg-slate-900 p-2 rounded-md">
+            <label for="phone_number" class="w-37">Phone number :</label>
+            <input type="number" name="phone_number" id="phone_number" placeholder="000000000000" value="<?= $member['phone_number'] ?>" class="grow bg-slate-900 p-2 rounded-md" required>
         </div>
         
         <div class="flex flex-row w-full items-center mb-4">
             <label for="email" class="w-37">Email :</label>
-            <input type="email" name="email" id="email" placeholder="name@mail.com" class="grow bg-slate-900 p-2 rounded-md">
+            <input type="email" name="email" id="email" placeholder="name@mail.com" value="<?= $member['email'] ?? '' ?>" class="grow bg-slate-900 p-2 rounded-md">
         </div>
         
-        <input type="submit" value="Register" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md">
+        <input type="submit" value="Update" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md">
 
 
     </form>

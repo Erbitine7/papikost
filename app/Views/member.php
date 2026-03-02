@@ -29,20 +29,27 @@
             </tr>
         </thead>
         <tbody>
-
-            <tr class="hover:bg-slate-800 border-b border-slate-700">
-                <td class="p-4">1</td>
-                <td class="p-4">John Umamusume</td>
-                <td class="py-4 px-2">9999-9999-9999</td>
-                <td class="py-4 px-2">special.week@tracen.edu</td>
-                <td class="py-4 px-2">12/02/2022</td>
-                <td class="py-4 px-2">15/05/2024</td>
-                <td class="pt-2 px-3 font-semibold text-right flex justify-end">
-                    <a href="<?= base_url('member/edit?id=' . '1') ?>" class="rounded-lg bg-yellow-400 pt-1 pb-2 px-2 ml-2 text-slate-900 hover:bg-yellow-600 flex"><ion-icon class="pt-1 text-2xl" name="pencil-outline"></ion-icon></a>
-                    <a onclick="openDelete(1)" class="rounded-lg bg-red-500 pt-1 pb-2 px-2 ml-2 hover:bg-red-700 hover:text-gray-300 flex"><ion-icon class="pt-1 text-2xl" name="trash-outline"></ion-icon></a>
-                </td>
-            </tr>
-
+            <?php if (! empty($members) && is_array($members)): ?>
+                <?php $no = 1; ?>
+                <?php foreach ($members as $member): ?>
+                    <tr class="hover:bg-slate-800 border-b border-slate-700">
+                        <td class="p-4"><?= $no++ ?></td>
+                        <td class="p-4"><?= esc($member['name']) ?></td>
+                        <td class="py-4 px-2"><?= esc($member['phone_number']) ?></td>
+                        <td class="py-4 px-2"><?= esc($member['email'] ?? '-') ?></td>
+                        <td class="py-4 px-2"><?= date('d/m/Y', strtotime($member['created_at'] ?? 'now')) ?></td>
+                        <td class="py-4 px-2">-</td>
+                        <td class="pt-2 px-3 font-semibold text-right flex justify-end">
+                            <a href="<?= base_url('member/edit?id=' . $member['id']) ?>" class="rounded-lg bg-yellow-400 pt-1 pb-2 px-2 ml-2 text-slate-900 hover:bg-yellow-600 flex"><ion-icon class="pt-1 text-2xl" name="pencil-outline"></ion-icon></a>
+                            <a onclick="openDelete(<?= $member['id'] ?>)" class="rounded-lg bg-red-500 pt-1 pb-2 px-2 ml-2 hover:bg-red-700 hover:text-gray-300 flex cursor-pointer"><ion-icon class="pt-1 text-2xl" name="trash-outline"></ion-icon></a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="7" class="p-4 text-center">No members found.</td>
+                </tr>
+            <?php endif ?>
         </tbody>
     </table>
 
@@ -51,11 +58,11 @@
 
 
 <dialog id="dialog-delete" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 open:flex backdrop:bg-slate-950/[80%]">
-    <form action="#" method="POST" class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
+    <form action="<?= base_url('/member/delete') ?>" method="POST" class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
         <h1 class="text-center mb-4">WARNING</h1>
         <div class="flex flex-row w-full items-center justify-between">
             <h3 class="mx-2 text-center">This will delete the selected member</h3>
-            <input type="hidden" name="memberid" value="1">
+            <input type="hidden" name="id" id="del-id" value="">
         </div>
         <div class="flex flex-row w-full items-center justify-between gap-3 mt-4">
             <button onclick="closeDelete()" type="button" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full">Cancel</button>
@@ -63,5 +70,15 @@
         </div>
     </form>
 </dialog>
+
+<script>
+function openDelete(id) {
+    document.getElementById('del-id').value = id;
+    document.getElementById('dialog-delete').showModal();
+}
+function closeDelete() {
+    document.getElementById('dialog-delete').close();
+}
+</script>
 
 <?= $this->endSection() ?>

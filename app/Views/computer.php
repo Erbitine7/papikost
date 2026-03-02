@@ -18,9 +18,10 @@
 
     <table class="outline outline-slate-700 rounded-sm w-full text-left">
         <thead class="border-b border-slate-700 bg-slate-950">
-            <tr>
+            <tr class="border-b border-slate-700 bg-slate-950">
                 <th class="p-2 pl-4">No.</th>
-                <th class="p-2">PC Name</th>
+                <th class="p-2">PC ID</th>
+                <th class="p-2">Specification</th>
                 <th class="p-2">Hourly price</th>
                 <th class="p-2">Status</th>
                 <th class="p-2">Added at:</th>
@@ -34,7 +35,8 @@
                 <?php foreach ($computers as $computer): ?>
                     <tr class="hover:bg-slate-800 border-b border-slate-700">
                         <td class="p-4"><?= $no++ ?></td>
-                        <td class="p-4">PC-<?= ($computer['pc_code'] ?? $computer['id']) ?></td>
+                        <td class="p-4">PC-<?= $computer['id'] ?></td>
+                        <td class="py-4 px-2"><?= esc($computer['spec']) ?></td>
                         <td class="py-4 px-2">Rp <?= number_format($computer['tariff'] ?? 0, 0, ',', '.') ?></td>
                         <td class="py-4 px-2">
                             <?= ($computer['status'] == 1) ? 'Under Maintenance' : ($computer['status'] == 0 ? 'Active' : 'Deactive') ?>
@@ -61,11 +63,12 @@
 
 
 <dialog id="dialog-delete" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 open:flex backdrop:bg-slate-950/[80%]">
-    <form action="#" method="POST" class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
+    <form action="<?= base_url('/computer/delete') ?>" method="POST" class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
         <h1 class="text-center mb-4">WARNING</h1>
         <div class="flex flex-row w-full items-center justify-center">
-            <label for="pcnodel">PC # :</label>
-            <input readonly type="number" name="pcno" id="del" class="w-12 bg-slate-900 p-2 rounded-md text-center ml-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+            <label for="pcnodel">PC ID :</label>
+            <input readonly type="number" id="del-pc" class="w-12 bg-slate-900 p-2 rounded-md text-center ml-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+            <input type="hidden" name="id" id="del-id" value="">
         </div>
         <div class="flex flex-row w-full items-center justify-between">
             <h3 class="mx-2 mt-4 text-center">This will delete the selected PC</h3>
@@ -76,5 +79,25 @@
         </div>
     </form>
 </dialog>
+
+<script>
+function openDelete(id) {
+    document.getElementById('del-id').value = id;
+    const rows = document.querySelectorAll('table tbody tr');
+    let pcCode = '';
+    rows.forEach(row => {
+        const idCell = row.querySelector('td:nth-child(1)');
+        if (idCell && idCell.textContent.trim() == id) {
+            const pcCell = row.querySelector('td:nth-child(2)');
+            if (pcCell) pcCode = pcCell.textContent.trim();
+        }
+    });
+    document.getElementById('del-pc').value = pcCode;
+    document.getElementById('dialog-delete').showModal();
+}
+function closeDelete() {
+    document.getElementById('dialog-delete').close();
+}
+</script>
 
 <?= $this->endSection() ?>

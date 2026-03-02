@@ -20,22 +20,26 @@
         </div>
         <div class="w-full flex flex-row flex-nowrap gap-5 overflow-auto p-4">
 
-            <form action="#" method="POST" class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
-                <input type="hidden" name="operator" value="admint">
+            <form action="<?= base_url('payment/complete/'.$session['id']) ?>" method="POST" class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
+            <?= csrf_field() ?>    
+            <input type="hidden" name="operator" value="admint">
                 
                 <div class="flex flex-row w-full items-center mb-4">
                     <label for="pcno" class="w-37">PC # :</label>
-                    <input type="number" name="pcno" id="pcno" placeholder="pcno" readonly value="2" class="grow bg-slate-900 p-2 rounded-md text-cyan-400">
+                    <input type="number" name="pcno" id="pcno" placeholder="pcno" readonly value="<?= esc($computer['id']) ?>"
+ class="grow bg-slate-900 p-2 rounded-md text-cyan-400">
                 </div>
 
                 <div class="flex flex-row w-full items-center mb-4">
                     <label for="membername" class="w-37">Member :</label>
-                    <input type="text" name="membername" id="membername" placeholder="membername" readonly value="Amiyi" class="grow bg-slate-900 p-2 rounded-md text-cyan-400">
+                    <input type="text" name="membername" id="membername" placeholder="membername" readonly value="<?= $member ? esc($member['name']) : 'Guest' ?>"
+ class="grow bg-slate-900 p-2 rounded-md text-cyan-400">
                 </div>
 
                 <div class="flex flex-row w-full items-center mb-4">
                     <label for="payment" class="w-37">Payment amount :</label>
-                    <input type="number" name="payment" id="payment" placeholder="payment" readonly value="10000" class="grow bg-slate-900 p-2 rounded-md text-cyan-400">
+                    <input type="number" name="payment" id="payment" placeholder="payment" readonly value="<?= esc($total) ?>"
+ class="grow bg-slate-900 p-2 rounded-md text-cyan-400">
                 </div>
                 
                 <div class="flex flex-row w-full items-center mb-4">
@@ -49,7 +53,9 @@
 
                 </div>
                 
-                <input type="submit" value="Save" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md">
+                <form action="<?= base_url('payment/complete/'.$session['id']) ?>" method="POST">
+<?= csrf_field() ?>
+
 
 
             </form>

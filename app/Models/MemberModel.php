@@ -19,5 +19,5 @@ class MemberModel extends Model
         'status'
     ];
 
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
 }

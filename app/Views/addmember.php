@@ -17,16 +17,16 @@
 </div>
 <div class="w-full flex flex-row flex-nowrap gap-5 overflow-auto p-4">
 
-    <form action="#" method="POST" class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
+    <form action="<?= base_url('/member/store') ?>" method="POST" class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
         
         <div class="flex flex-row w-full items-center mb-4">
             <label for="name" class="w-37">Name :</label>
-            <input type="text" name="name" id="name" placeholder="name" class="grow bg-slate-900 p-2 rounded-md">
+            <input type="text" name="name" id="name" placeholder="Full name" class="grow bg-slate-900 p-2 rounded-md" required>
         </div>
         
         <div class="flex flex-row w-full items-center mb-4">
-            <label for="phone" class="w-37">Phone number :</label>
-            <input type="number" name="phone" id="phone" placeholder="000000000000" class="grow bg-slate-900 p-2 rounded-md">
+            <label for="phone_number" class="w-37">Phone number :</label>
+            <input type="number" name="phone_number" id="phone_number" placeholder="000000000000" class="grow bg-slate-900 p-2 rounded-md" required>
         </div>
         
         <div class="flex flex-row w-full items-center mb-4">

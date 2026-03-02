@@ -20,5 +20,5 @@ class ComputerModel extends Model
         'status'
     ];
 
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
 }

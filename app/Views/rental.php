@@ -30,18 +30,33 @@
         </thead>
         <tbody>
 
-            <tr class="hover:bg-slate-800 border-b border-slate-700">
-                <td class="p-4">1</td>
-                <td class="p-4">1</td>
-                <td class="py-4 px-2">Penguinistrator</td>
-                <td class="py-4 px-2">12:00</td>
-                <td class="py-4 px-2">13:00</td>
-                <td class="py-4 px-2">Rp 10.000</td>
-                <td class="pt-2 px-3 font-semibold text-right flex justify-end text-center">
-                    <button onclick="openExtend(1)" class="rounded-lg bg-lime-500 pt-1 pb-2 px-2 text-slate-900 hover:bg-lime-600 flex items-center"><ion-icon class="pt-1 text-2xl mr-1" name="add-outline"></ion-icon>Extend</button>
-                    <button onclick="openDelete(1)" class="rounded-lg bg-red-600 pt-1 pb-2 px-2 ml-2 hover:bg-red-700 hover:text-gray-300 flex items-center"><ion-icon class="pt-1 text-2xl mr-1" name="checkmark-circle-outline"></ion-icon> Finish</button>
+<?php if (!empty($active)) : ?>
+    <?php $no = 1; ?>
+    <?php foreach ($active as $row) : ?>
+        <tr class="hover:bg-slate-800 border-b border-slate-700">
+            <td class="p-4"><?= $no++ ?></td>
+            <td class="p-4"><?= esc($row['computer_id']) ?></td>
+            <td class="py-4 px-2">
+                <?= $row['customer_id'] ? esc($row['customer_id']) : 'Guest' ?>
+            </td>
+            <td class="py-4 px-2"><?= esc($row['start_time']) ?></td>
+            <td class="py-4 px-2"><?= esc($row['end_time']) ?></td>
+            <td class="py-4 px-2"><?= esc($row['total_amount']) ?></td>
+            <td class=" px-1 text-right">
+                 <td class="font-semibold text-right flex justify-end text-center">
+                    <button onclick="openExtend(<?= $row['id'] ?>)" class="rounded-lg bg-lime-500 pt-1 pb-2 px-2 text-slate-900 hover:bg-lime-600 flex items-center"><ion-icon class="pt-1 text-2xl mr-1" name="add-outline"></ion-icon>Extend</button>
+                    <button onclick="openDelete(<?= $row['id'] ?>)" class="rounded-lg bg-red-600 pt-1 pb-2 px-2 ml-2 hover:bg-red-700 hover:text-gray-300 flex items-center"><ion-icon class="pt-1 text-2xl mr-1" name="checkmark-circle-outline"></ion-icon> Finish</button>
                 </td>
-            </tr>
+            </td>
+        </tr>
+    <?php endforeach ?>
+<?php else : ?>
+    <tr>
+        <td colspan="7" class="text-center p-4 text-slate-400">
+            No active rentals
+        </td>
+    </tr>
+<?php endif ?>
 
             
 

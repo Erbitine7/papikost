@@ -21,10 +21,12 @@ class BillingMigration extends Migration
             'unsigned' => true,
         ],
         'customer_id' => [
-            'type' => 'INT',
-            'constraint' => 11,
-            'unsigned' => true,
-        ],
+    'type' => 'INT',
+    'constraint' => 11,
+    'unsigned' => true,
+    'null' => true,
+],
+
         'start_time' => [
             'type' => 'DATETIME',
         ],

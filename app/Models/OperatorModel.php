@@ -21,5 +21,5 @@ class OperatorModel extends Model
         'status'
     ];
 
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
 }

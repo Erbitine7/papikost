@@ -17,21 +17,34 @@
 </div>
 <div class="w-full flex flex-row flex-nowrap gap-5 overflow-auto p-4">
 
-    <form action="#" method="POST" class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
+    <form action="<?= base_url('/staff/store') ?>" method="POST" class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
         
         <div class="flex flex-row w-full items-center mb-4">
-            <label for="name" class="w-37">Name :</label>
-            <input type="text" name="name" id="name" placeholder="name" class="grow bg-slate-900 p-2 rounded-md">
+            <label for="username" class="w-37">Username :</label>
+            <input type="text" name="username" id="username" placeholder="username" class="grow bg-slate-900 p-2 rounded-md" required>
         </div>
         
         <div class="flex flex-row w-full items-center mb-4">
-            <label for="phone" class="w-37">Phone number :</label>
-            <input type="number" name="phone" id="phone" placeholder="000000000000" class="grow bg-slate-900 p-2 rounded-md">
+            <label for="password" class="w-37">Password :</label>
+            <input type="password" name="password" id="password" placeholder="password" class="grow bg-slate-900 p-2 rounded-md" required>
+        </div>
+        
+        <div class="flex flex-row w-full items-center mb-4">
+            <label for="full_name" class="w-37">Full Name :</label>
+            <input type="text" name="full_name" id="full_name" placeholder="Full name" class="grow bg-slate-900 p-2 rounded-md" required>
         </div>
         
         <div class="flex flex-row w-full items-center mb-4">
             <label for="email" class="w-37">Email :</label>
             <input type="email" name="email" id="email" placeholder="name@mail.com" class="grow bg-slate-900 p-2 rounded-md">
+        </div>
+        
+        <div class="flex flex-row w-full items-center mb-4">
+            <label for="role" class="w-37">Role :</label>
+            <select name="role" id="role" class="grow bg-slate-900 p-2 rounded-md" required>
+                <option value="0">Admin</option>
+                <option value="1" selected>Operator</option>
+            </select>
         </div>
         
         <input type="submit" value="Register" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md">
