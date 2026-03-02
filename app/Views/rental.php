@@ -19,7 +19,7 @@
     <table class="outline outline-slate-700 rounded-sm w-full text-left">
         <thead class="border-b border-slate-700 bg-slate-950">
             <tr>
-                <th class="p-2">№</th>
+                <th class="p-2 pl-4">№</th>
                 <th class="p-2">PC #</th>
                 <th class="p-2">User</th>
                 <th class="p-2">Start time</th>
@@ -60,7 +60,7 @@
     <table class="outline outline-slate-700 rounded-sm w-full text-left">
         <thead class="border-b border-slate-700 bg-slate-950">
             <tr>
-                <th class="p-2">№</th>
+                <th class="p-2 pl-4">№</th>
                 <th class="p-2">PC #</th>
                 <th class="p-2">User</th>
                 <th class="p-2">Start time</th>

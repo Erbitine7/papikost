@@ -62,4 +62,53 @@ class StaffCtrl extends BaseController
         ];
         return view('addrental', $data);
     }
+
+    public function member(): string
+    {
+        $data = [
+            'page'=>'Member'
+        ];
+        return view('member', $data);
+    }
+
+    public function addmember(): string
+    {
+        $data = [
+            'page'=>'Member'
+        ];
+        return view('addmember', $data);
+    }
+
+    public function editmember(): string
+    {
+        $data = [
+            'page'=>'Member'
+        ];
+        return view('editmember', $data);
+    }
+
+    public function staff(): string
+    {
+        $data = [
+            'page'=>'Staff'
+        ];
+        return view('staff', $data);
+    }
+
+    public function addstaff(): string
+    {
+        $data = [
+            'page'=>'Staff'
+        ];
+        return view('addstaff', $data);
+    }
+
+    public function editstaff(): string
+    {
+        $data = [
+            'page'=>'Staff'
+        ];
+        return view('editstaff', $data);
+    }
+
 }

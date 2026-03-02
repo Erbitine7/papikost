@@ -16,3 +16,11 @@ $routes->get('/computer/edit', 'StaffCtrl::editcomputer');
 
 $routes->get('/rental', 'StaffCtrl::rental');
 $routes->get('/rental/add', 'StaffCtrl::addrental');
+
+$routes->get('/member', 'StaffCtrl::member');
+$routes->get('/member/add', 'StaffCtrl::addmember');
+$routes->get('/member/edit', 'StaffCtrl::editmember');
+
+$routes->get('/staff', 'StaffCtrl::staff');
+$routes->get('/staff/add', 'StaffCtrl::addstaff');
+$routes->get('/staff/edit', 'StaffCtrl::editstaff');
