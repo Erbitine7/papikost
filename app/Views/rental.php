@@ -35,7 +35,7 @@
                 <th class="p-2">PC Name</th>
                 <th class="p-2">User</th>
                 <th class="p-2">Start time</th>
-                <th class="p-2">End time</th>
+                <!-- <th class="p-2">End time</th> -->
                 <th class="p-2">Base Price</th>
                 <th class="p-2 text-right px-4">Action</th>
             </tr>
@@ -52,13 +52,12 @@
     <?= $row['customer_id'] ? esc($row['member_name']) : 'Guest' ?>
 </td>
             <td class="py-4 px-2"><?= esc($row['start_time']) ?></td>
-            <td class="py-4 px-2"><?= esc($row['end_time']) ?></td>
+            <!-- <td class="py-4 px-2"><?php //echo esc($row['end_time']) ?></td> -->
             <td class="py-4 px-2"> Rp <?= number_format($row['computer_tariff'], 0, ',', '.') ?>
 </td>
-            <td class=" px-1 text-center font-semibold text-right flex justify-end">
+            <td class="text-center font-semibold text-right flex justify-end py-2 px-3">
                  
-                    
-                    <button onclick="openDelete(<?= $row['id'] ?>)" class="rounded-lg bg-red-600 pt-1 pb-2 px-2 ml-2 hover:bg-red-700 hover:text-gray-300 flex items-center"><ion-icon class="pt-1 text-2xl mr-1" name="checkmark-circle-outline"></ion-icon> Finish</button>
+                    <button onclick="openPayment(<?= $row['id'] ?>)" class="rounded-lg bg-red-600 pt-1 pb-2 px-2 ml-2 hover:bg-red-700 hover:text-gray-300 flex items-center"><ion-icon class="pt-1 text-2xl mr-1" name="checkmark-circle-outline"></ion-icon> Finish</button>
                 
             </td>
         </tr>
@@ -93,10 +92,10 @@
             <th class="p-2">User</th>
             <th class="p-2">Start time</th>
             <th class="p-2">End time</th>
-            <th class="p-2">Date</th>
+            <!-- <th class="p-2">Date</th> -->
             <th class="p-2">Total price</th>
             <th class="p-2">Payment method</th>
-            <th class="p-2 text-right">Operator</th>
+            <!-- <th class="p-2 text-right">Operator</th> -->
         </tr>
     </thead>
     <tbody>
@@ -111,7 +110,7 @@
 </td>
                     <td class="py-4 px-2"><?= esc($row['start_time']) ?></td>
                     <td class="py-4 px-2"><?= esc($row['end_time']) ?></td>
-                    <td class="py-4 px-2"><?= esc($row['date'] ?? '-'); ?></td> 
+                    <!-- <td class="py-4 px-2"><?php //echo esc($row['date'] ?? '-'); ?></td>  -->
                     <td class="py-4 px-2">Rp <?= number_format($row['total_amount'], 0, ',', '.') ?></td>
                     <td class="py-4 px-2">
     <?php
@@ -134,7 +133,7 @@
         }
     ?>
 </td>
-                    <td class="pt-2 px-3 text-right"><?= esc($row['operator_name'] ?? 'System') ?></td>
+                    <!-- <td class="pt-2 px-3 text-right"><?php //echo esc($row['operator_name'] ?? 'System') ?></td> -->
                 </tr>
             <?php endforeach ?>
         <?php else : ?>
@@ -150,26 +149,6 @@
 </div>
 <hr class="text-slate-600 mb-3">
 
-<dialog id="hrextend" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 open:flex backdrop:bg-slate-950/[80%]">
-    <form id="hrexform" action="#" method="POST" class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
-        <h1 class="text-center mb-4">Rent extension</h1>
-        <div class="flex flex-row w-full items-center justify-center">
-            <label for="pcnoex">PC # :</label>
-            <input type="number" name="pcno" id="pcnoex" class="w-12 bg-slate-900 p-2 rounded-md text-center ml-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
-        </div>
-        <div class="flex flex-row w-full items-center justify-between">
-            <button onclick="hrExtend(0)" type="button" id="minus" class="cursor-pointer bg-slate-700 hover:bg-slate-500 p-2 mt-2 mb-1 rounded-md w-full"><ion-icon class="pt-1 text-2xl mr-1" name="remove-outline"></ion-icon></button>
-            <input type="number" name="extend" id="extend" value="1" class="w-12 bg-slate-900 p-2 rounded-md text-center ml-4 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
-            <h3 class="mr-4 ml-2">hour(s)</h3>
-            <button onclick="hrExtend(1)" type="button" id="plus" class="cursor-pointer bg-slate-700 hover:bg-slate-500 p-2 mt-2 mb-1 rounded-md w-full"><ion-icon class="pt-1 text-2xl mr-1" name="add-outline"></ion-icon></button>
-        </div>
-        <div class="flex flex-row w-full items-center justify-between gap-3 mt-4">
-            <button onclick="closeExtend()" type="button" class="cursor-pointer bg-red-600 hover:bg-red-500 p-2 mt-2 mb-1 rounded-md w-full">Cancel</button>
-            <input type="submit" value="+ Extend" class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full">
-        </div>
-    </form>
-</dialog>
-
 <dialog id="dialog-delete" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 open:flex backdrop:bg-slate-950/[80%]">
     <div action="#" method="POST" class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
         <h1 class="text-center mb-4">Rent conclusion</h1>
@@ -183,11 +162,11 @@
         <div class="flex flex-row w-full items-center justify-between gap-3 mt-4">
             <button onclick="closeDelete()" type="button" class="cursor-pointer bg-red-600 hover:bg-red-500 p-2 mt-2 mb-1 rounded-md w-full">Cancel</button>
             <a id="proceedLink"
-   href="#"
-   data-base-url="<?= base_url('payment/') ?>"
-   class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full text-center">
-    Proceed
-</a>
+            href="#"
+            data-base-url="<?= base_url('payment/') ?>"
+            class="cursor-pointer bg-sky-600 hover:bg-sky-500 p-2 mt-2 mb-1 rounded-md w-full text-center">
+                Proceed
+            </a>
         </div>
     </div>
 </dialog>

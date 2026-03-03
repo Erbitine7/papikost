@@ -22,7 +22,7 @@ class ComputerMigration extends Migration
         ],
         'spec' => [
             'type' => 'TEXT',
-            'default' => 'Standard',
+            // 'default' => 'Standard',
         ],
         'status' => [
             'type' => 'TINYINT',

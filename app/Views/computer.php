@@ -51,7 +51,7 @@ $email = session()->get('staff_email') ?? '-';
                         <td class="py-4 px-2"><?= esc($computer['spec']) ?></td>
                         <td class="py-4 px-2">Rp <?= number_format($computer['tariff'] ?? 0, 0, ',', '.') ?></td>
                         <td class="py-4 px-2">
-                            <?= ($computer['status'] == 1) ? 'Under Maintenance' : ($computer['status'] == 0 ? 'Active' : 'Deactive') ?>
+                            <?= ($computer['status'] == 1) ? 'Occupied' : ($computer['status'] == 0 ? 'Active' : 'Under Maintenance') ?>
                         </td>
                         <td class="py-4 px-2"><?= date('d/m/Y', strtotime($computer['created_at'] ?? 'now')) ?></td>
                         <td class="py-4 px-2">
@@ -83,7 +83,7 @@ $email = session()->get('staff_email') ?? '-';
 
 
 <dialog id="dialog-delete"
-    class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 open:flex backdrop:bg-slate-950/[80%]">
+    class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 open:flex backdrop:bg-slate-950/[80%] text-white bg-transparent">
     <form action="<?= base_url('/computer/delete') ?>" method="POST"
         class="bg-slate-800 w-75 shadow-lg rounded-2xl flex flex-col py-4 px-5">
         <h1 class="text-center mb-4">WARNING</h1>

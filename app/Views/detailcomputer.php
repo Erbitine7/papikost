@@ -59,7 +59,7 @@ $email = session()->get('staff_email') ?? '-';
 
         <div class="flex w-full">
             <h3 class="w-60">Status:</h3>
-            <h3 class=""><?= $computer['status'] == 1 ? 'Active' : 'Inactive' ?></h3>
+            <h3 class=""><?= ($computer['status'] == 1) ? 'Occupied' : ($computer['status'] == 0 ? 'Active' : 'Under Maintenance') ?></h3>
         </div>
 
     </div>

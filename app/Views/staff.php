@@ -32,8 +32,9 @@ $email = session()->get('staff_email') ?? '-';
         <thead class="border-b border-slate-700 bg-slate-950">
             <tr>
                 <th class="p-2 pl-4">№</th>
+                <th class="p-2">Role</th>
                 <th class="p-2">Name</th>
-                <th class="p-2">Phone number</th>
+                <th class="p-2">Full Name</th>
                 <th class="p-2">Email</th>
                 <th class="p-2">Joined at:</th>
                 <th class="p-2 text-right px-4">Action</th>
@@ -45,6 +46,7 @@ $email = session()->get('staff_email') ?? '-';
                 <?php foreach ($operators as $operator): ?>
                     <tr class="hover:bg-slate-800 border-b border-slate-700">
                         <td class="p-4"><?= $no++ ?></td>
+                        <td class="p-4"><?= esc($operator['role']) == 0 ? 'Admin' : 'Operator' ?></td>
                         <td class="p-4"><?= esc($operator['full_name']) ?></td>
                         <td class="py-4 px-2"><?= esc($operator['username']) ?></td>
                         <td class="py-4 px-2"><?= esc($operator['email'] ?? '-') ?></td>

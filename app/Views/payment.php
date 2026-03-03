@@ -7,11 +7,24 @@
     
     <div class="py-6">
 
-        <div class="flex flex-row items-center mb-5 px-5">
-            <h3 class="font-semibold text-slate-900 bg-slate-200 px-1 rounded-md mr-2">ADMIN</h3>
-            <h1 class="text-2xl mx-1">Name</h1>
-            <span class="text-sm text-slate-400 self-end">(email@mail.com)</span>
-        </div>
+        <?php
+            $operatorid = (int) session()->get('staff_id');
+            $role = (int) session()->get('staff_role');
+            $roleLabel = ($role === 0) ? 'ADMIN' : 'OPERATOR';
+
+            $name  = session()->get('staff_name') ?? '-';
+            $email = session()->get('staff_email') ?? '-';
+            ?>
+
+            <div class="flex flex-row items-center mb-5 px-5">
+            <h3 class="font-semibold text-slate-900 bg-slate-200 px-1 rounded-md mr-2">
+                <?= esc($roleLabel) ?>
+            </h3>
+
+            <h1 class="text-2xl mx-1">Hello, <?= esc($name) ?></h1>
+
+            <span class="text-sm text-slate-400 self-end">(<?= esc($email) ?>)</span>
+            </div>
 
         <hr class="text-slate-600 mb-3">
 
@@ -23,7 +36,7 @@
             <form action="<?= base_url('payment/complete/'.$session['id']) ?>" method="POST"
       class="bg-slate-950 w-full shadow-lg rounded-2xl flex flex-col py-6 px-7">
     <?= csrf_field() ?>
-    <input type="hidden" name="operator_id" value="1"><!-- later from login -->
+    <input type="hidden" name="operator_id" value="<?= $operatorid ?>"><!-- later from login -->
 
     <!-- PC -->
     <div class="flex flex-row w-full items-center mb-4">
