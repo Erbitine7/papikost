@@ -165,11 +165,11 @@ class Database extends Config
     public array $tests = [
         'DSN'         => '',
         'hostname'    => '127.0.0.1',
-        'username'    => '',
+        'username'    => 'root',
         'password'    => '',
-        'database'    => ':memory:',
-        'DBDriver'    => 'SQLite3',
-        'DBPrefix'    => 'db_',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
+        'database'    => 'warnet_test',
+        'DBDriver'    => 'MySQLi',
+        'DBPrefix'    => '',
         'pConnect'    => false,
         'DBDebug'     => true,
         'charset'     => 'utf8',
@@ -193,6 +193,14 @@ class Database extends Config
     public function __construct()
     {
         parent::__construct();
+
+        $this->tests['hostname'] = env('database.tests.hostname', env('database.default.hostname', $this->tests['hostname']));
+        $this->tests['username'] = env('database.tests.username', env('database.default.username', $this->tests['username']));
+        $this->tests['password'] = env('database.tests.password', env('database.default.password', $this->tests['password']));
+        $this->tests['database'] = env('database.tests.database', env('database.default.database', $this->tests['database']));
+        $this->tests['DBDriver'] = env('database.tests.DBDriver', env('database.default.DBDriver', $this->tests['DBDriver']));
+        $this->tests['DBPrefix'] = env('database.tests.DBPrefix', env('database.default.DBPrefix', $this->tests['DBPrefix']));
+        $this->tests['port']     = (int) env('database.tests.port', env('database.default.port', $this->tests['port']));
 
         // Ensure that we always set the database group to 'tests' if
         // we are currently running an automated test suite, so that
