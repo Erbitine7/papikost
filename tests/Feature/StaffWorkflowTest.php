@@ -3,6 +3,7 @@
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
+use Tests\Support\FeatureTestDataTrait;
 
 /**
  * @internal
@@ -10,6 +11,7 @@ use CodeIgniter\Test\FeatureTestTrait;
 final class StaffWorkflowTest extends CIUnitTestCase
 {
     use DatabaseTestTrait;
+    use FeatureTestDataTrait;
     use FeatureTestTrait;
 
     protected $namespace = null;
@@ -18,13 +20,13 @@ final class StaffWorkflowTest extends CIUnitTestCase
 
     public function testCanLoginCreateComputerAndMember(): void
     {
-        $this->hasInDatabase('operators', [
-            'username'   => 'budi',
-            'password'   => password_hash('budijuga', PASSWORD_DEFAULT),
-            'full_name'  => 'Budi',
-            'email'      => 'budi@example.com',
-            'role'       => 0,
-            'status'     => 0,
+        $budiId = $this->insertTableRow('operators', [
+            'username'  => 'budi',
+            'password'  => password_hash('budijuga', PASSWORD_DEFAULT),
+            'full_name' => 'Budi',
+            'email'     => 'budi@example.com',
+            'role'      => 0,
+            'status'    => 0,
         ]);
 
         $loginResponse = $this->post('/staff-login', [
@@ -36,10 +38,9 @@ final class StaffWorkflowTest extends CIUnitTestCase
         $loginResponse->assertSessionHas('is_staff_logged_in', true);
         $loginResponse->assertSessionHas('staff_email', 'budi@example.com');
 
-        $computerResponse = $this->withSession([
-            'is_staff_logged_in' => true,
-            'staff_email'        => 'budi@example.com',
-        ])->post('/computer/store', [
+        $session = $this->sessionAsStaff('budi@example.com', 0, $budiId);
+
+        $computerResponse = $this->withSession($session)->post('/computer/store', [
             'spec'   => 'Test PC',
             'tariff' => '15000',
             'status' => '0',
@@ -52,10 +53,7 @@ final class StaffWorkflowTest extends CIUnitTestCase
             'status' => 0,
         ]);
 
-        $memberResponse = $this->withSession([
-            'is_staff_logged_in' => true,
-            'staff_email'        => 'budi@example.com',
-        ])->post('/member/store', [
+        $memberResponse = $this->withSession($session)->post('/member/store', [
             'name'         => 'Joko',
             'phone_number' => '081234567890',
             'email'        => 'joko@example.com',

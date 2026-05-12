@@ -389,12 +389,13 @@ class StaffCtrl extends BaseController
         ];
         return view('staff', $data);
     }
-    public function addstaff(): string
+    public function addstaff(): ResponseInterface|string
     {
         if ($redirect = $this->ensureAdmin()) {
             return $redirect;
         }
         $data = ['page' => 'Staff'];
+
         return view('addstaff', $data);
     }
 
@@ -554,8 +555,13 @@ class StaffCtrl extends BaseController
 
     public function storeRental()
     {
+        if ($redirect = $this->ensureLoggedIn()) {
+            return $redirect;
+        }
+
         $pcId = $this->request->getPost('pcno');
         $memberId = $this->request->getPost('member_id');
+        $operatorId = (int) session()->get('staff_id');
 
         $this->billingModel->save([
             'computer_id' => $pcId,
@@ -563,7 +569,7 @@ class StaffCtrl extends BaseController
             'start_time' => date('Y-m-d H:i:s'),
             'end_time' => null,
             'status' => 0,
-            'operator_id' => 1 
+            'operator_id' => $operatorId,
         ]);
 
         
